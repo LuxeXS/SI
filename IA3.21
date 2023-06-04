@@ -1,0 +1,19 @@
+import tensorflow as tf
+from tensorflow import keras
+
+# Definir los datos de entrenamiento
+entrenamiento_x = [1, 2, 3, 4, 5]
+entrenamiento_y = [2, 4, 6, 8, 10]
+
+# Crear el modelo
+modelo = keras.Sequential([keras.layers.Dense(units=1, input_shape=[1])])
+
+# Compilar el modelo
+modelo.compile(optimizer='sgd', loss='mean_squared_error')
+
+# Entrenar el modelo
+modelo.fit(entrenamiento_x, entrenamiento_y, epochs=100)
+
+# Utilizar el modelo para hacer predicciones
+resultado = modelo.predict([6])
+print(resultado)
